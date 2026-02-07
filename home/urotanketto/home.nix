@@ -8,7 +8,23 @@
 
   programs.home-manager.enable = true;
 
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+
+    settings = {
+      user = {
+        name = "urotanketto";
+        email = "197749865+urotanketto@users.noreply.github.com";
+      };
+
+      init.defaultBranch = "main";
+      pull.rebase = false;
+      core.editor = "nvim";
+      color.ui = "auto";
+    };
+
+  };
+
   programs.zsh.enable = true;
   programs.fzf.enable = true;
 
