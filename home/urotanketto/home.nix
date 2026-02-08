@@ -38,6 +38,22 @@
     defaultEditor = true;
   };
 
+  xdg.configFile."nvim/init.lua".text = ''
+    -- Basic options
+    vim.g.mapleader = " "
+
+    vim.opt.number = true
+    vim.opt.signcolumn = "yes"
+    vim.opt.termguicolors = true
+
+    vim.opt.expandtab = true
+    vim.opt.shiftwidth = 2
+    vim.opt.tabstop = 2
+
+    vim.opt.ignorecase = true
+    vim.opt.smartcase = true
+'';
+
   home.packages = with pkgs; [
     ripgrep fd jq tree
     pciutils usbutils
