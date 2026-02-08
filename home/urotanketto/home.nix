@@ -45,6 +45,7 @@
     dnsutils mtr traceroute ethtool
     unzip zip xz
     lm_sensors
+    gh
 
     # --- Go ---
     go
