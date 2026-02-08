@@ -46,6 +46,7 @@
     unzip zip xz
     lm_sensors
     gh
+    gcc binutils
 
     # --- Go ---
     go
