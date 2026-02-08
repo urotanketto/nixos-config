@@ -76,6 +76,7 @@
     wget
     curl
     git
+    ghostty.terminfo
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
