@@ -42,6 +42,9 @@
     ripgrep fd jq tree
     pciutils usbutils
     lsof strace htop
+    dnsutils mtr traceroute ethtool
+    unzip zip xz
+    lm_sensors
   ];
 }
 
