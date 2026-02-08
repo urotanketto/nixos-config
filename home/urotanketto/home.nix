@@ -45,6 +45,27 @@
     dnsutils mtr traceroute ethtool
     unzip zip xz
     lm_sensors
+
+    # --- Go ---
+    go
+    gopls
+    gotools
+    golangci-lint
+    delve
+
+    # --- Rust ---
+    rustc
+    cargo
+    rust-analyzer
+    cargo-edit
+    cargo-watch
+
+    # --- Haskell ---
+    ghc
+    cabal-install
+    haskell-language-server
+    hlint
+    ormolu
   ];
 }
 
