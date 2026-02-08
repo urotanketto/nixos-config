@@ -1,0 +1,9 @@
+# Secrets must never be comitted
+/secrets/
+
+# Nix build outpus / links
+/result
+/result-*
+
+# Optional: editor / OS junk
+.DS_Store
