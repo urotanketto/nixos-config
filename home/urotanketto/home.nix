@@ -49,7 +49,7 @@
       unbind '"'
 
       bind - split-window -v -c "#{pane_current_path}"
-      bind \ split-window -h -c "#{pane_current_path}"
+      bind \\ split-window -h -c "#{pane_current_path}"
 
       ##### colorscheme (tmux)
       # bg: #161821, bg2: #1e2132, fg: #c6c8d1, blue: #84a0c6, cyan: #89b8c2, red: #e27878, green: #b4be82, yellow: #e2a478
