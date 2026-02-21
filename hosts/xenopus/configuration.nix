@@ -71,6 +71,61 @@
 
   # programs.firefox.enable = true;
 
+  # Wayland compositor
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  # Login manager
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        user = "greeter";
+      };
+    };
+  };
+
+  # Portals
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
+  };
+
+  # Polkit
+  security.polkit.enable = true;
+
+  # Audio
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+  };
+  security.rtkit.enable = true;
+
+  # font
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+
+    font-awesome
+    inter-nerdfont
+  ];
+
+  fonts.fontconfig.defaultFonts = {
+    sansSerif = [ "Noto Sans" "Noto Sans CJK JP" "Noto Color Emoji" ];
+    serif = [ "Noto Serif" "Noto Serif CJK JP" "Noto Color Emoji" ];
+    monospace = [ "Noto Sans Mono" "Noto Sans CJK JP" "Noto Color Emoji" ];
+    emoji = [ "Noto Color Emoji" ];
+  };
+
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [

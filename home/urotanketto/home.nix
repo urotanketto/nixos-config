@@ -112,7 +112,69 @@
 
     vim.opt.ignorecase = true
     vim.opt.smartcase = true
-'';
+  '';
+
+  xdg.configFile."hypr/hyprland.conf".text = ''
+    $mod = SUPER
+
+    exec-once = mako
+    exec-once = waybar
+    exec-once = swaybg -c "161821"
+
+    bind = $mod, Return, exec, foot
+    bind = $mod, D, exec, wofi --show drun
+    bind = $mod, Q, killactive
+    bind = $mod, M, exit
+
+    bind = $mod SHIFT, S, exec, grim -g "$(slurp" ~/Pictures/screenshot-$(date +%F-%H%M%S).png
+  '';
+
+  xdg.configFile."waybar/config.jsonc".text = ''
+  {
+    "layer": "top",
+    "position": "top",
+
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["network", "pulseaudio", "battery", "tray"],
+
+    "clock": { "format": "{:%Y-%m-%d %H:%M}" },
+
+    "network": {
+      "format-wifi": "  {signalStrength}%",
+      "format-ethernet": " LAN",
+      "format-disconnected": " NoNet"
+    },
+
+    "pulseaudio": { "format": " {volume}%", "format-muted": " MUTED" },
+
+    "battery": { "format": "  {capacity}%", "format-charging": "  {capacity}%" }
+  }
+  '';
+
+  xdg.configFile."waybar/style.css".text = ''
+    * {
+      font-family:
+        "Font Awesome 7 Free",
+        "Font Awesome 7 Brands",
+        "Noto Sans",
+        "Noto Sand CJK JP",
+        "Noto Color Emoji",
+        sans-serif;
+      font-size: 11px;
+      min-height: 0;
+    }
+
+    window#waybar{
+      background: rgba(22, 24, 33, 0.92);
+      color: #c6c8d1;
+    }
+
+    #workspaces, #clock, #network, #pulseaudio, #battery, #tray {
+      padding: 0 6px;
+      margin: 0 2px;
+    }
+  '';
 
   home.packages = with pkgs; [
     ripgrep fd jq tree
@@ -144,6 +206,14 @@
     haskell-language-server
     hlint
     ormolu
+
+    foot
+    wofi
+    waybar
+    mako
+    swaybg
+    grim slurp
+    wl-clipboard
   ];
 }
 
