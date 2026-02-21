@@ -117,6 +117,10 @@
   xdg.configFile."hypr/hyprland.conf".text = ''
     $mod = SUPER
 
+    input {
+      kb_options = ctrl:nocaps
+    }
+
     exec-once = mako
     exec-once = waybar
     exec-once = swaybg -c "161821"
