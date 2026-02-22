@@ -119,6 +119,10 @@
 
     input {
       kb_options = ctrl:nocaps
+
+      touchpad {
+        natural_scroll = true
+      }
     }
 
     exec-once = mako
