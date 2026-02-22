@@ -218,6 +218,7 @@
     swaybg
     grim slurp
     wl-clipboard
+    firefox
   ];
 }
 
