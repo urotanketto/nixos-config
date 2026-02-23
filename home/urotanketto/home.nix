@@ -138,6 +138,24 @@
     bind = $mod, M, exit
 
     bind = $mod SHIFT, S, exec, grim -g "$(slurp" ~/Pictures/screenshot-$(date +%F-%H%M%S).png
+
+    # Focus: Alt + h/j/k/l
+    bind = ALT, h, movefocus, l
+    bind = ALT, j, movefocus, d
+    bind = ALT, k, movefocus, u
+    bind = ALT, l, movefocus, r
+
+    # Move window: Alt + Shift + h/j/k/l
+    bind = ALT SHIFT, h, movewindow, l
+    bind = ALT SHIFT, j, movewindow, d
+    bind = ALT SHIFT, k, movewindow, u
+    bind = ALT SHIFT, l, movewindow, r
+
+    # Resize window: Alt + Shift + a/s/d/w
+    bind = ALT SHIFT, a, resizeactive, -40 0
+    bind = ALT SHIFT, d, resizeactive,  40 0
+    bind = ALT SHIFT, w, resizeactive,  0 -40
+    bind = ALT SHIFT, s, resizeactive,  0  40
   '';
 
   xdg.configFile."waybar/config.jsonc".text = ''
