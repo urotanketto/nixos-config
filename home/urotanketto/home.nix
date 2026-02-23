@@ -128,6 +128,7 @@
     exec-once = mako
     exec-once = waybar
     exec-once = swaybg -c "161821"
+    exec-once = fcitx5 -d
 
     bind = $mod, Return, exec, foot
     bind = $mod, D, exec, wofi --show drun
@@ -184,6 +185,24 @@
     }
   '';
 
+  xdg.configFile."fcitx5/profile".text = ''
+  [Groups/0]
+  Name=Default
+  Default Layout=us
+  DefaultIM=keyboard-us
+
+  [Groups/0/Items/0]
+  Name=keyboard-us
+  Layout=us
+
+  [Groups/0/Items/1]
+  Name=mozc
+  Layout=
+
+  [GroupOrder]
+  0=Defalut
+  '';
+  
   home.packages = with pkgs; [
     ripgrep fd jq tree
     pciutils usbutils
