@@ -203,6 +203,55 @@
   0=Defalut
   '';
   
+  home.file.".local/bin/hypr-display-scale-menu" = {
+    text = ''
+      #!/usr/bin/env bash
+      set -euo pipefail
+
+      MONITOR="eDP-1"
+
+      CHOICE="$(
+        printf '%s\n' \
+          "scale 1.00" \
+          "scale 1.25" \
+          "scale 1.50" \
+          "scale 1.75" \
+          "scale 2.00" \
+        | wofi --dmenu --prompt "Display scale ($MONITOR)"
+      )"
+
+      [ -z "''${CHOICE:-}" ] && exit 0
+
+      case "$CHOICE" in
+        "scale 1.00")
+          hyprctl keyword monitor "$MONITOR,preferred,0x0,1"
+          ;;
+        "scale 1.25")
+          hyprctl keyword monitor "$MONITOR,preferred,0x0,1.25"
+          ;;
+        "scale 1.50")
+          hyprctl keyword monitor "$MONITOR,preferred,0x0,1.5"
+          ;;
+        "scale 1.75")
+          hyprctl keyword monitor "$MONITOR,preferred,0x0,1.75"
+          ;;
+        "scale 2.00")
+          hyprctl keyword monitor "$MONITOR,preferred,0x0,2"
+          ;;
+      esac
+    '';
+    executable = true;
+  };
+
+  xdg.desktopEntries.hypr-display-scale = {
+    name = "Display Scale";
+    genericName = "Hyprland Display Scale Menu";
+    comment = "Choose display scale presets for Hyprland";
+    exec = "/home/urotanketto/.local/bin/hypr-display-scale-menu";
+    terminal = false;
+    categories = [ "Settings" "Utility" ];
+  };
+
   home.packages = with pkgs; [
     ripgrep fd jq tree
     pciutils usbutils
