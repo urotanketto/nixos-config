@@ -125,6 +125,8 @@
       }
     }
 
+    monitor = eDP-1,preferred,0x0,1.25
+
     exec-once = mako
     exec-once = waybar
     exec-once = swaybg -c "161821"
