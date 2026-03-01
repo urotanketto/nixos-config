@@ -36,7 +36,9 @@
     defaultEditor = true;
   };
 
-  xdg.configFile."nvim".source = ../nvim;
+  xdg.configFile."nvim".source =
+    config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/nixos-config/home/urotanketto/nvim";
 
   home.packages = with pkgs; [
     ripgrep fd jq tree

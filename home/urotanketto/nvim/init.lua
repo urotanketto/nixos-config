@@ -20,3 +20,7 @@ vim.opt.tabstop = 2
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+-- Plugins
+require("config.lazy")
+
