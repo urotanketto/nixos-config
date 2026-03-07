@@ -18,10 +18,12 @@
     exec-once = waybar
     exec-once = swaybg -c "161821"
     exec-once = fcitx5 -d
+    exec-once = hypridle
 
     bind = $mod, Return, exec, foot
     bind = $mod, D, exec, wofi --show drun
     bind = $mod, Q, killactive
+    bind = $mod, L, exec, hyprlock
     bind = $mod, M, exit
 
     bind = $mod SHIFT, S, exec, grim -g "$(slurp" ~/Pictures/screenshot-$(date +%F-%H%M%S).png
@@ -93,5 +95,43 @@
     terminal = false;
     categories = [ "Settings" "Utility" ];
   };
+
+  xdg.configFile."fypr/hypridle.conf".text = ''
+    general {
+      lock_cmd = hyprlock
+      ignore_dbus_inhibit = false
+    }
+
+    listener {
+      timeout = 300
+      on-timeout = hyprlock
+    }
+
+    listener {
+      timeout = 600
+      on-timeout = hyprctl dispatch dpms off
+      on-resume  = hyprctl dispatch dpms on
+    }
+  '';
+
+  xdg.configFile."hypr/hyprlock.conf".text = ''
+    general{
+      disable_loading_bar = true
+      hide_cursor = true
+    }
+
+    background {
+      color = rgba(16, 18, 26, 1.0)
+    }
+
+    input-field{
+      size = 300, 50
+      outline_thickness = 2
+      dots_size = 0.2
+      dots_spacing = 0.35
+      dots_center = true
+      placeholder_text = <i>locked</i>
+    }
+  '';
 }
 

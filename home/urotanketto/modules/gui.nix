@@ -34,6 +34,8 @@
     grim slurp
     wl-clipboard
     firefox
+    hyprlock
+    hypridle
   ];
 }
 
