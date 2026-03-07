@@ -20,6 +20,9 @@
     exec-once = fcitx5 -d
     exec-once = hypridle
 
+    # Polkit agent (GUI auth prompts)
+    exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
+
     # clipboard history (text)
     exec-once = wl-paste --type text --watch cliphist store
     # clipboard history (image)

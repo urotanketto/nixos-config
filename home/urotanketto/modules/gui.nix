@@ -37,6 +37,7 @@
     firefox
     hyprlock
     hypridle
+    polkit_gnome
   ];
 }
 
