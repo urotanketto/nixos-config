@@ -1,0 +1,143 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+format = """
+[░▒▓](gray)\
+$os\
+$username\
+$hostname\
+[](fg:gray bg:green)\
+$directory\
+[](fg:green bg:yellow)\
+$git_branch\
+$git_status\
+[](fg:yellow bg:blue)\
+$nodejs\
+$rust\
+$golang\
+$haskell\
+$python\
+$kubernetes\
+[](fg:blue bg:background)\
+$fill\
+\n$character
+"""
+
+right_format = """
+$cmd_duration\
+"""
+
+palette = "default"
+
+[palettes.default]
+red = "#eb6f92"
+bright_red = "#ff000d"
+green = "#a3be8c"
+bright_green = "#aaff00"
+purple = "#c4a7e7"
+yellow = "#fadb79"
+blue = "#569fba"
+magenta = "#c4a7e7"
+cyan = "#9ccfd8"
+white = "#e0def4"
+gray = "#6e6a86"
+black = "#0e0d15"
+
+[fill]
+symbol = "─"
+style = "bg:background fg:blue"
+
+[os]
+disabled = false
+style = "bg:gray fg:black"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+Macos = "󰀵"
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Arch = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+
+[username]
+show_always = true
+style_user = "bg:gray fg:black"
+style_root = "bg:gray fg:yellow"
+format = "[ $user ]($style)"
+
+[hostname]
+style = "bg:gray fg:black"
+format = "[$ssh_symbol$hostname ]($style)"
+
+[directory]
+style = "fg:black bg:green"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"src" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:yellow"
+format = '[[ $symbol $branch ](fg:black bg:yellow)]($style)'
+
+[git_status]
+style = "bg:yellow"
+format = '[[($all_status$ahead_behind )](fg:black bg:yellow)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:black bg:blue)]($style)'
+
+[c]
+symbol = " "
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:black bg:blue)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:black bg:blue)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:black bg:blue)]($style)'
+
+[haskell]
+symbol = ""
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:black bg:blue)]($style)'
+
+[python]
+symbol = ""
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:black bg:blue)]($style)'
+
+[kubernetes]
+disabled = false
+style = "bg:blue"
+format = '[[⛵ ($user on )($cluster in )$context \($namespace\)](fg:black bg:blue)]($style)'
+
+[character]
+disabled = false
+success_symbol = '[>>>](bold fg:bright_green)'
+error_symbol = '[>>>](bold fg:bright_red)'
+vimcmd_symbol = '[](bold fg:green)'
+vimcmd_replace_one_symbol = '[](bold fg:purple)'
+vimcmd_replace_symbol = '[](bold fg:purple)'
+vimcmd_visual_symbol = '[](bold fg:yellow)'
+
+[cmd_duration]
+format = "󰓅 [$duration]($style)"
+min_time = 100
+show_milliseconds = true

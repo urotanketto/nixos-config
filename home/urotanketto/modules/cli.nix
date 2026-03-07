@@ -40,6 +40,13 @@
     config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/nixos-config/home/urotanketto/nvim";
 
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  xdg.configFile."starship.toml".source = ../starship/starship.toml;
+
   home.packages = with pkgs; [
     ripgrep fd jq tree
     pciutils usbutils
