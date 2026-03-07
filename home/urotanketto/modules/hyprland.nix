@@ -20,6 +20,11 @@
     exec-once = fcitx5 -d
     exec-once = hypridle
 
+    # clipboard history (text)
+    exec-once = wl-paste --type text --watch cliphist store
+    # clipboard history (image)
+    exec-once = wl-paste --type image --watch cliphist store
+
     bind = $mod, Return, exec, foot
     bind = $mod, D, exec, wofi --show drun
     bind = $mod, Q, killactive
@@ -94,6 +99,28 @@
     exec = "/home/urotanketto/.local/bin/hypr-display-scale-menu";
     terminal = false;
     categories = [ "Settings" "Utility" ];
+  };
+
+  home.file.".local/bin/cliphist-wofi" = {
+    text = ''
+      #!/usr/bin/env bash
+      set -euo pipefail
+
+      # Pick an entry, decode it, and put it back to clipboard
+      sel="$(cliphist list | wofi --dmenu --prompt 'clipboard')"
+      [ -z "''${sel:-}" ] && exit 0
+
+      cliphist decode <<<"$sel" | wl-copy
+    '';
+    executable = true;
+  };
+
+  xdg.desktopEntries.cliphist = {
+    name = "Clipboard History";
+    comment = "Select from clipboard history";
+    exec = "/home/urotanketto/.local/bin/cliphist-wofi";
+    terminal = false;
+    categories = [ "Utility" ];
   };
 
   xdg.configFile."fypr/hypridle.conf".text = ''

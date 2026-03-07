@@ -33,6 +33,7 @@
     swaybg
     grim slurp
     wl-clipboard
+    cliphist
     firefox
     hyprlock
     hypridle
