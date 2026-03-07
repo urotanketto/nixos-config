@@ -18,7 +18,15 @@
 
   };
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+
+    initContent = ''
+      # tmux: attach-or-create main session
+      t() { tmux new-session -A -s main; }
+    '';
+  };
+
   programs.fzf.enable = true;
 
   programs.tmux = {
