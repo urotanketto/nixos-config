@@ -185,6 +185,24 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.download-buffer-size = 268435456;
 
+  # Nix store maintenance
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 14d";
+    };
+
+    settings = {
+      auto-optimise-store = true;
+    };
+  };
+
+  # Persist system logs across reboots
+  services.journald.extraConfig = ''
+    Storage=persistent
+  '';
+
   hardware.enableRedistributableFirmware = true;
 
   boot.kernelParams = [
