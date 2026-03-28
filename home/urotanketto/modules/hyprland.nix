@@ -126,7 +126,7 @@
     categories = [ "Utility" ];
   };
 
-  xdg.configFile."fypr/hypridle.conf".text = ''
+  xdg.configFile."hypr/hypridle.conf".text = ''
     general {
       lock_cmd = hyprlock
       ignore_dbus_inhibit = false
