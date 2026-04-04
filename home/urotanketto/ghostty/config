@@ -1,0 +1,5 @@
+theme = Nightfox
+font-size = 12
+shell-integration = zsh
+confirm-close-surface = false
+

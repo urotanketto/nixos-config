@@ -25,6 +25,8 @@
     };
   };
 
+  xdg.configFile."ghostty/config".source = ../ghostty/config;
+
   home.packages = with pkgs; [
     foot
     ghostty
