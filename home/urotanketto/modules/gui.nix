@@ -27,6 +27,7 @@
 
   home.packages = with pkgs; [
     foot
+    ghostty
     wofi
     waybar
     mako
