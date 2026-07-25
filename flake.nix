@@ -3,11 +3,15 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nur.url = "github:nix-community/NUR";
+    nur.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, nur, ... }:
   let
     system = "x86_64-linux";
   in
@@ -15,6 +19,8 @@
     nixosConfigurations.xenopus = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
+        nur.modules.nixos.default
+
         ./hosts/xenopus/configuration.nix
         ./hosts/xenopus/hardware-configuration.nix
 

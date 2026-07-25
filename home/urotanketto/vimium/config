@@ -1,0 +1,30 @@
+# Vimium custom key mappings
+
+## Scrolling
+map j scrollDown
+map k scrollUp
+map h scrollLeft
+map l scrollRight
+
+map gg scrollToTop
+map G scrollToBottom
+
+## Links
+map f LinkHints.activateMode
+map F LinkHints.activateModeToOpenInNewTab
+
+## Tabs
+map J nextTab
+map K previousTab
+map x removeTab
+map X restoreTab
+
+## Navigation
+map H goBack
+map L goForward
+
+## Search
+map / enterFindMode
+map n preformFind
+map N preformBackwardsFind
+

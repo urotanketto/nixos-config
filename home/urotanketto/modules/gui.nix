@@ -34,7 +34,6 @@
     grim slurp
     wl-clipboard
     cliphist
-    firefox
     hyprlock
     hypridle
     polkit_gnome
