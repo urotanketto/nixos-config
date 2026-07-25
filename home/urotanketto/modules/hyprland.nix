@@ -1,5 +1,8 @@
 { config, pkgs, ...}:
 
+let
+  terminal = "${pkgs.ghostty}/bin/ghostty";
+in
 {
   xdg.configFile."hypr/hyprland.conf".text = ''
     $mod = SUPER
@@ -28,7 +31,7 @@
     # clipboard history (image)
     exec-once = wl-paste --type image --watch cliphist store
 
-    bind = $mod, Return, exec, foot
+    bind = $mod, Return, exec, ${terminal}
     bind = $mod, D, exec, wofi --show drun
     bind = $mod, Q, killactive
     bind = $mod, L, exec, hyprlock
