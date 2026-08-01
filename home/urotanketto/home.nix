@@ -10,6 +10,7 @@
     ./modules/waybar.nix
     ./modules/ime.nix
     ./modules/nvim.nix
+    ./modules/tmux.nix
     ./modules/firefox.nix
     ./modules/vimium.nix
   ];
