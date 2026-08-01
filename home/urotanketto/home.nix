@@ -9,6 +9,7 @@
     ./modules/hyprland.nix
     ./modules/waybar.nix
     ./modules/ime.nix
+    ./modules/nvim.nix
     ./modules/firefox.nix
     ./modules/vimium.nix
   ];
