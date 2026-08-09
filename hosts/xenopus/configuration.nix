@@ -95,12 +95,23 @@
     xwayland.enable = true;
   };
 
+  programs.niri.enable = true;
+
+  environment.pathsToLink = [
+    "/share/wayland-sessions"
+  ];
+
   # Login manager
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        command = ''
+          ${pkgs.tuigreet}/bin/tuigreet \
+            --time \
+            --remember \
+            --cmd Hyprland
+        '';
         user = "greeter";
       };
     };

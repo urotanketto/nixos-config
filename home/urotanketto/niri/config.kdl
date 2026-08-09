@@ -1,0 +1,92 @@
+input {
+  keyboard {
+    xkb {
+      options "ctrl:nocaps"
+    }
+  }
+
+  touchpad {
+    natural-scroll
+  }
+}
+
+output "eDP-1" {
+  scale 1.25
+}
+
+binds {
+  // Terminal
+  Mod+Return {
+    spawn "ghostty";
+  }
+
+  // Application launcher
+  Mod+D {
+    spawn "wofi" "--show" "drun";
+  }
+
+  // Close focused window
+  Mod+Q {
+    close-window;
+  }
+
+  //Move focus
+  Alt+H {
+    focus-column-left;
+  }
+  Alt+L {
+    focus-column-right;
+  }
+  Alt+J {
+    focus-window-down;
+  }
+  Alt+K {
+    focus-window-up;
+  }
+
+  // Move focused colmn/window
+  Alt+Shift+H {
+    move-column-left;
+  }
+  Alt+Shift+L {
+    move-column-right;
+  }
+  Alt+Shift+J {
+    move-window-down;
+  }
+  Alt+Shift+K {
+    move-window-up;
+  }
+
+  // Resize
+  Alt+shift+A {
+    set-column-width "-10%";
+  }
+  Alt+Shift+D {
+    set-column-width "+10%";
+  }
+  Alt+Shift+S {
+    set-window-height "-10%";
+  }
+  Alt+Shift+W {
+    set-window-height "+10%";
+  }
+
+  // Return window height to automatic sizing
+  Alt+Shift+R {
+    reset-window-height;
+  }
+
+  // Move focused window into/out of adjacent column
+  Alt+BracketLeft {
+    consume-or-expel-window-left;
+  }
+  Alt+BracketRight {
+    consume-or-expel-window-right;
+  }
+
+  // Return to greetd
+  Mod+Shift+E {
+    quit;
+  }
+}

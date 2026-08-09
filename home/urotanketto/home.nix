@@ -13,6 +13,7 @@
     ./modules/tmux.nix
     ./modules/firefox.nix
     ./modules/vimium.nix
+    ./modules/niri.nix
   ];
 }
 
