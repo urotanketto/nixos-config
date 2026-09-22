@@ -79,11 +79,27 @@
         "type": "github"
       }
     },
+    "private-config": {
+      "locked": {
+        "lastModified": 1790074753,
+        "narHash": "sha256-robnEdgLAy0ms16rwdnayQYvdRtZnaHlkcQvKcCNd2g=",
+        "ref": "refs/heads/main",
+        "rev": "bad22d6c2ffb057cbb96b6ab099aeba087a871e0",
+        "revCount": 2,
+        "type": "git",
+        "url": "ssh://git@github.com/urotanketto/nixos-private.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/urotanketto/nixos-private.git"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nur": "nur"
+        "nur": "nur",
+        "private-config": "private-config"
       }
     }
   },

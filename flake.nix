@@ -1,5 +1,5 @@
 {
-  description = "NixOS configuration for xenopus";
+  description = "Personal NixOS configurations";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
@@ -9,9 +9,19 @@
 
     nur.url = "github:nix-community/NUR";
     nur.inputs.nixpkgs.follows = "nixpkgs";
+
+    private-config.url =
+      "git+ssh://git@github.com/urotanketto/nixos-private.git";
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, ... }:
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nur,
+    private-config,
+    ...
+  }:
   let
     system = "x86_64-linux";
   in
@@ -31,6 +41,15 @@
 
           home-manager.users.urotanketto = import ./home/urotanketto/home.nix;
         }
+      ];
+    };
+
+    nixosConfigurations.pombe = nixpkgs.lib.nixosSystem {
+      inherit system;
+
+      modules = [
+        ./hosts/pombe/configuration.nix
+        private-config.nixosModules.pombe-network
       ];
     };
   };
