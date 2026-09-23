@@ -17,6 +17,7 @@
 
   environment.systemPackages = with pkgs; [
     git
+    ghostty.terminfo
   ];
 
   # Use the GRUB 2 boot loader.
@@ -71,6 +72,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
+  programs.zsh.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   # users.users.alice = {
   #   isNormalUser = true;
@@ -82,8 +85,11 @@
   users.users.urotanketto = {
     isNormalUser = true;
     extraGroups = ["wheel" "networkmanager" ];
+    shell = pkgs.zsh;
   };
   security.sudo.wheelNeedsPassword = true;
+
+  services.logind.settings.Login.HandleLidSwitch = "ignore";
 
   # programs.firefox.enable = true;
 
