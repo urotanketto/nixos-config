@@ -50,6 +50,15 @@
       modules = [
         ./hosts/pombe/configuration.nix
         private-config.nixosModules.pombe-network
+
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+
+          home-manager.users.urotanketto = 
+            import ./home/urotanketto/home-pombe.nix;
+        }
       ];
     };
   };

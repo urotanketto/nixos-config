@@ -4,6 +4,9 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+
+    # init.lua is managed in the nixos-config repository.
+    sideloadInitLua = true;
   };
 
   xdg.configFile."nvim".source =
