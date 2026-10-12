@@ -22,6 +22,11 @@
     enable = true;
 
     initContent = ''
+      # Use a simple Starship prompt on the Linux virtual console.
+      if [[ "$TERM" == "linux" ]]; then
+        export STARSHIP_CONFIG="$HOME/.config/starship-tty.toml"
+      fi
+
       # tmux: attach-or-create main session
       t() { tmux new-session -A -s main; }
     '';
@@ -35,6 +40,7 @@
   };
 
   xdg.configFile."starship.toml".source = ../starship/starship.toml;
+  xdg.configFile."starship-tty.toml".source = ../starship/starship-tty.toml;
 
   home.packages = with pkgs; [
     ripgrep fd jq tree
