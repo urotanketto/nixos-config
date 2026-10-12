@@ -4,6 +4,7 @@
   imports = [
     ./modules/cli.nix
     ./modules/nvim.nix
+    ./modules/tmux.nix
   ];
 
   services.ssh-agent.enable = true;
