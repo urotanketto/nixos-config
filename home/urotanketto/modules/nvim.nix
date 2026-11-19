@@ -7,6 +7,9 @@
 
     # init.lua is managed in the nixos-config repository.
     sideloadInitLua = true;
+
+    withRuby = false;
+    withPython3 = false;
   };
 
   xdg.configFile."nvim".source =
